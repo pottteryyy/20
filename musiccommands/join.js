@@ -28,13 +28,13 @@ module.exports = class JoinCommand extends Command {
         try {
             let user = msg.member;
             if (!user.voiceChannel) {
-                return (await msg.say('You must join voice channel first before using this command')).delete(1200);
+                return (await msg.say('กรุณาเข้าห้องคุย')).delete(1200);
             } else {
                 if (user.voiceChannel.joinable) {
                     user.voiceChannel.join().then(async (connection) => (await msg.say(`Joined Voice Channel - \`${connection.channel.name}\``)).delete(12000));
                 }
                 else {
-                    return msg.say(`I can't join channel ${user.voiceChannel.name}. Missing permissions.`)
+                    return msg.say(`ไม่สามารถเข้าห้องคุยได้ ${user.voiceChannel.name}. ไม่มี permissions.`)
                 }
             }
         } catch (e) {
