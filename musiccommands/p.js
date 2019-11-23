@@ -2,7 +2,7 @@
 
 exports.run = async (client, message, args, ops) => {
 
-    if (!message.member.voiceChannel) return message.channel.send('โง่เข้าห้องคุยด้วยไอส้สแล้วมึงจะฟังเพลงยังไง');
+    if (!message.member.voiceChannel) return message.channel.send('โง่ไม่เข้าห้องคุยละไอส้ส');
 
     if (!args[0]) return message.channel.send('อย่าลืมใส่ลิ้งค์ด้วย ok');
 
@@ -38,7 +38,7 @@ exports.run = async (client, message, args, ops) => {
     else {
 
         message.channel.send(`เพิ่มเพลง ${info.title} ลงในคิวเรียบร้อยแล้ว |
-		ผู้ขอเพลงนี้ @${message.author.tag} `);
+		คนขอเพลงนี้ @${message.author.tag} `);
 
     }
 
@@ -49,7 +49,7 @@ exports.run = async (client, message, args, ops) => {
 async function play(client, ops, data) {
 
     client.channels.get(data.queue[0].announceChannel).send(`ขณะนี้กำลังเล่นเพลง ${data.queue[0].songTitle} | 
-ผู้ขอเพลงนี้ @${data.queue[0].requester} `)
+คนขอเพลงนี้ @${data.queue[0].requester} `)
 
     data.dispatcher = await data.connection.playStream(ytdl(data.queue[0].url, {
         filter: 'audioonly',
