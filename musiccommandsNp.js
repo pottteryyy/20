@@ -32,7 +32,7 @@ module.exports = class ViewCommand extends Command {
         try {
             let list = this.client.music.getMusicQueue(msg.guild);
             if (!list || list.length === 0) {
-                return (await msg.say('Music queue is empty. Search for some songs first.')).delete(1200);
+                return (await msg.say('Music queue is empty.')).delete(1200);
             }
             else {
                 return (await msg.say( `Guild - ${msg.guild.name} - Music Queue List\n`+ Helper.getPaginatedList(list, args.page), {code: 'python', split: true})).delete(12000);
