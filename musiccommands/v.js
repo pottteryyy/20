@@ -6,6 +6,6 @@ exports.run = (client, message, args, ops) => {
 
     fetched.dispatcher.setVolume(args[0]/150);
 
-    message.channel.send(`เปลี่ยนระดับความดับเรียบร้อยแล้ว`)
+    message.channel.send(`เปลี่ยนระดับความดังเรียบร้อยแล้ว`)
 
 }
